@@ -11,23 +11,25 @@ Esta es la parte mínima que tendrás que entregar para superar este laboratorio
 ### Consultas
 - Saca en una consulta cuantos alojamientos hay en España.
 
-`use ("airbnb")
+```javascript
+use ("airbnb")
 
 db.listingsAndReviews.countDocuments({ 
     "address.country": {$eq: "Spain"}
-})`
+})
 
 - Lista los 10 primeros alojamientos de España:
   - Ordenados por precio de forma ascendente.
   - Sólo muestra: nombre, precio, camas y la localidad (address.market).
 
-`use ("airbnb")
+
+use ("airbnb")
 
 db.listingsAndReviews.find( 
     {"address.country": {$eq: "Spain"}},
     {_id:0, name: 1, price: 1 ,
         beds:1, "address.market":1}
-    ).limit(10).sort({price:1})`
+    ).limit(10).sort({price:1})
 
 ### Filtrando
 - Queremos viajar cómodos, somos 4 personas y queremos:
