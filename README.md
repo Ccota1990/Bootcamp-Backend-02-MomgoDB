@@ -17,12 +17,13 @@ use ("airbnb")
 db.listingsAndReviews.countDocuments({ 
     "address.country": {$eq: "Spain"}
 })
+```
 
 - Lista los 10 primeros alojamientos de España:
   - Ordenados por precio de forma ascendente.
   - Sólo muestra: nombre, precio, camas y la localidad (address.market).
 
-
+```javascript
 use ("airbnb")
 
 db.listingsAndReviews.find( 
@@ -30,14 +31,16 @@ db.listingsAndReviews.find(
     {_id:0, name: 1, price: 1 ,
         beds:1, "address.market":1}
     ).limit(10).sort({price:1})
+```
 
 ### Filtrando
 - Queremos viajar cómodos, somos 4 personas y queremos:
   - 4 camas.
   - Dos cuartos de baño o más.
   - Sólo muestra: nombre, precio, camas y baños.
-
-`Pega aquí tu consulta`
+```javascript
+Pega aquí tu consulta
+```
 
 - Aunque estamos de viaje no queremos estar desconectados, así que necesitamos que el alojamiento también tenga conexión wifi. A los requisitos anteriores, hay que añadir que el alojamiento tenga wifi.
   - Sólo muestra: nombre, precio, camas, baños y servicios (amenities).
